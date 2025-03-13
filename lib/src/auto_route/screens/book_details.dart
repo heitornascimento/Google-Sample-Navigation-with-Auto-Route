@@ -2,15 +2,12 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:url_launcher/link.dart';
 
 import '../../data.dart';
 import '../app_auto_route.gr.dart';
-
 
 @RoutePage()
 class BookDetailsScreen extends StatelessWidget {
@@ -18,7 +15,7 @@ class BookDetailsScreen extends StatelessWidget {
   final Book? _book;
 
   BookDetailsScreen({super.key, @PathParam('id') this.bookId})
-      : _book = libraryInstance.getBook(bookId!);
+    : _book = libraryInstance.getBook(bookId!);
 
   @override
   Widget build(BuildContext context) {
@@ -41,39 +38,23 @@ class BookDetailsScreen extends StatelessWidget {
             TextButton(
               child: const Text('View author (Push)'),
               onPressed: () {
-                // pops until provided route, if it already exists in stack
                 context.router.navigate(
                   AuthorDetailsRoute(
                     author: _book.author,
                     onBookTapped: (book) {
-                      ///Incorrect
-                      // context.router.replace(BookDetailsRoute(book: book));
                       context.router.navigateNamed('/book-details/${book.id}');
                     },
                   ),
                 );
-                // Navigator.of(context).push<void>(
-                //   MaterialPageRoute<void>(
-                //     builder:
-                //         (context) => AuthorDetailsScreen(
-                //           author: book!.author,
-                //           onBookTapped: (book) {
-                //             GoRouter.of(
-                //               context,
-                //             ).go('/books/all/book/${book.id}');
-                //           },
-                //         ),
-                //   ),
-                // );
               },
             ),
             Link(
               uri: Uri.parse('/authors/author/${_book.author.id}'),
               builder:
                   (context, followLink) => TextButton(
-                onPressed: followLink,
-                child: const Text('View author (Link)'),
-              ),
+                    onPressed: followLink,
+                    child: const Text('View author (Link)'),
+                  ),
             ),
           ],
         ),

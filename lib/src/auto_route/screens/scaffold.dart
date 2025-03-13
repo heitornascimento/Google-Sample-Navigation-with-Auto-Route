@@ -3,24 +3,12 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:adaptive_navigation/adaptive_navigation.dart';
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
-///THIS IS THE HOMESCREEN
 
 @RoutePage()
 class BookstoreScaffold extends StatefulWidget {
-  // final Widget child;
-  // final int selectedIndex;
-
-  const BookstoreScaffold({
-    Key? key,
-
-    // required this.child,
-    // required this.selectedIndex,
-  }) : super(key: key);
+  const BookstoreScaffold({Key? key}) : super(key: key);
 
   @override
   State<BookstoreScaffold> createState() => _BookstoreScaffoldState();
@@ -54,10 +42,6 @@ class _BookstoreScaffoldState extends State<BookstoreScaffold> {
               if (idx == 0) router.navigateNamed('/books');
               if (idx == 1) router.navigateNamed("/authors");
               if (idx == 2) router.navigateNamed("/settings");
-
-              // if (idx == 0) goRouter.go('/books/popular');
-              // if (idx == 1) goRouter.go('/authors');
-              // if (idx == 2) goRouter.go('/settings');
             },
             destinations: const [
               AdaptiveScaffoldDestination(title: 'Books', icon: Icons.book),
@@ -71,23 +55,6 @@ class _BookstoreScaffoldState extends State<BookstoreScaffold> {
         );
       },
     );
-
-    // return Scaffold(
-    //   body: AdaptiveNavigationScaffold(
-    //     selectedIndex: selectedIndex,
-    //     body: child,
-    //     onDestinationSelected: (idx) {
-    //       if (idx == 0) goRouter.go('/books/popular');
-    //       if (idx == 1) goRouter.go('/authors');
-    //       if (idx == 2) goRouter.go('/settings');
-    //     },
-    //     destinations: const [
-    //       AdaptiveScaffoldDestination(title: 'Books', icon: Icons.book),
-    //       AdaptiveScaffoldDestination(title: 'Authors', icon: Icons.person),
-    //       AdaptiveScaffoldDestination(title: 'Settings', icon: Icons.settings),
-    //     ],
-    //   ),
-    // );
   }
 
   void _handleIndex() {

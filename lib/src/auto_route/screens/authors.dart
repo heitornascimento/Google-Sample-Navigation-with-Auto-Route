@@ -27,13 +27,9 @@ class AuthorsScreen extends StatelessWidget {
           AuthorDetailsRoute(
             author: author,
             onBookTapped: (book) {
-              ///Incorrect
-              // context.router.replace(BookDetailsRoute(book: book));
-              ///This is the correct way to navigate to the book details.
               ///Otherwise, the stack will be filled with the same route.
               ///doc:
               // pops until provided route, if it already exists in stack
-
               context.router.navigateNamed('/book-details/${book.id}');
             },
           ),

@@ -15,7 +15,7 @@ The only intended change on the navigation is to open BookDetails and AuthorDeta
 
 ### Run the app with Auto Router
 ```shell
-flutter run --dart-define=AUTO_ROUTER=true
+flutter run --dart-define=AUTO_ROUTE=true
 ```
 
 ### Run the app with default implementation with GoRouter

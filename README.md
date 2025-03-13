@@ -13,7 +13,7 @@ All the changes are made on auto_folder folder. The remaining code is the same a
 The only intended change on the navigation is to open BookDetails and AuthorDetails screen outside the bottom navigation bar.
 
 
-### Run the app with Auto Router
+### Run the app with Auto Route
 ```shell
 flutter run --dart-define=AUTO_ROUTE=true
 ```
